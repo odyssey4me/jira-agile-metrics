@@ -83,16 +83,17 @@ class ThroughputCalculator(Calculator):
         _, top = ax.get_ylim()
         ax.set_ylim(0, top + 1)
 
-        for x, y in zip(chart_data.index, chart_data['count']):
-            if y == 0:
-                continue
-            ax.annotate(
-                "%.0f" % y,
-                xy=(x.toordinal(), y + 0.2),
-                ha='center',
-                va='bottom',
-                fontsize="x-small",
-            )
+        # Removed due to https://github.com/DeloitteDigitalUK/jira-agile-metrics/issues/30
+        #for x, y in zip(chart_data.index, chart_data['count']):
+        #    if y == 0:
+        #        continue
+        #    ax.annotate(
+        #        "%.0f" % y,
+        #        xy=(x.toordinal(), y + 0.2),
+        #        ha='center',
+        #        va='bottom',
+        #        fontsize="x-small",
+        #    )
 
         ax.plot(chart_data.index, chart_data['fitted'], '--', linewidth=2)
 
